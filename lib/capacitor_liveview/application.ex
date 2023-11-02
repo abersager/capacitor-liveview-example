@@ -16,6 +16,11 @@ defmodule CapacitorLiveview.Application do
       {Phoenix.PubSub, name: CapacitorLiveview.PubSub},
       # Start Finch
       {Finch, name: CapacitorLiveview.Finch},
+      # {NodeJS, path: "/src/js", pool_size: 4},
+      %{
+        id: NodeJS,
+        start: {NodeJS, :start_link, [[path: "/src/js", pool_size: 4]]}
+      },
       # Start the Endpoint (http/https)
       CapacitorLiveviewWeb.Endpoint
       # Start a worker by calling: CapacitorLiveview.Worker.start_link(arg)

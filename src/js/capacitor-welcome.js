@@ -140,3 +140,6 @@ window.customElements.define(
     }
   }
 );
+
+
+exports.add = (a, b) => a + b
