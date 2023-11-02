@@ -13,8 +13,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@capacitor/core": "latest",
+    "@capacitor-community/sqlite": "^5.4.2-1",
     "@capacitor/camera": "latest",
+    "@capacitor/core": "latest",
     "@capacitor/splash-screen": "latest"
   },
   "devDependencies": {
