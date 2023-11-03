@@ -10,3 +10,6 @@ project(':capacitor-camera').projectDir = new File('../node_modules/@capacitor/c
 
 include ':capacitor-splash-screen'
 project(':capacitor-splash-screen').projectDir = new File('../node_modules/@capacitor/splash-screen/android')
+
+include ':capawesome-team-capacitor-datetime-picker'
+project(':capawesome-team-capacitor-datetime-picker').projectDir = new File('../node_modules/@capawesome-team/capacitor-datetime-picker/android')

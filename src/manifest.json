@@ -1,7 +1,7 @@
 {
   "name": "App",
   "short_name": "App",
-  "start_url": "index.html",
+  "start_url": "http://localhost:4000",
   "display": "standalone",
   "icons": [{
     "src": "assets/imgs/logo.png",
