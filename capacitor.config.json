@@ -1,7 +1,6 @@
 {
   "appId": "com.oliverspindler.capacitor_liveview",
   "appName": "capacitor-liveview",
-  "bundledWebRuntime": false,
   "webDir": "dist",
   "plugins": {
     "SplashScreen": {

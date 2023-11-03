@@ -14,8 +14,10 @@
   },
   "dependencies": {
     "@capacitor-community/sqlite": "^5.4.2-1",
+    "@capacitor/android": "^5.5.1",
     "@capacitor/camera": "latest",
     "@capacitor/core": "latest",
+    "@capacitor/ios": "^5.5.1",
     "@capacitor/splash-screen": "latest"
   },
   "devDependencies": {

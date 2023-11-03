@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">capacitor-liveview</string>
+    <string name="title_activity_main">capacitor-liveview</string>
+    <string name="package_name">com.oliverspindler.capacitor_liveview</string>
+    <string name="custom_url_scheme">com.oliverspindler.capacitor_liveview</string>
+</resources>
