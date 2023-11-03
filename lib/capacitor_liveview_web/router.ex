@@ -17,7 +17,7 @@ defmodule CapacitorLiveviewWeb.Router do
   scope "/", CapacitorLiveviewWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", ExampleLive.Index, :index
   end
 
   # Other scopes may use custom stacks.

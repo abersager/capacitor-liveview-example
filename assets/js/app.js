@@ -22,13 +22,43 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
+const Hooks = {}
+
+// Courtesy of https://elixirforum.com/t/how-to-pushevent-from-javascript-to-liveview/48883/3
+Hooks.RelayHook = {
+  mounted() {
+    relay = this
+    document.addEventListener('relay-event', (e) =>
+      relay.pushEvent(e.detail.event, e.detail.payload)
+    )
+  }
+}
+window.pushEvent = function (event, payload) {
+  const relayEvent = new CustomEvent('relay-event', {
+    detail: { event: event, payload: payload },
+  })
+  document.dispatchEvent(relayEvent)
+}
+
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks})
 
 // Show progress bar on live navigation and form submits
 topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
 window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
 window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
+
+window.addEventListener("phx:js-exec", async ({ detail }) => {
+  try {
+    const result = await eval(detail.command)
+    if (detail.result_event) {
+      pushEvent(detail.result_event, result)
+    }
+  } catch (e) {
+    console.error(e)
+  }
+})
 
 // connect if there are any LiveViews on the page
 liveSocket.connect()
